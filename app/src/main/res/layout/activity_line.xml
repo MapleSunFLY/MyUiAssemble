@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.fly.myuiassemble.LineActivity">
+
+    <com.fly.viewlibrary.statistics.line.LineCartView
+        android:id="@+id/lineCart"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_margin="16dp"
+        android:background="#495fab"
+        android:layerType="software"
+        android:minHeight="120dp"
+        app:lineCartBottoHintColor="#FFFFFF"
+        app:lineCartBottoTextColor="#FFFFFF"
+        app:lineCartDottedLineColor="#FFFFFF"
+        app:lineCartLineColor="#FFFFFF"
+        app:lineCartLineHeight="1px"
+        app:lineCartPointColor="#FFFFFF"
+        app:lineCartScoreTextColor="#FFFFFF"
+        app:lineCartVerticalBackgroundColor="#495fab"
+        app:lineCartVerticalTextColor="#FFFFFF"
+        app:lineCartXInterval="20dp" />
+
+    <com.fly.viewlibrary.statistics.line.StatisticsLineChartView
+        android:id="@+id/statisticsLine"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:padding="8dp"
+        app:statisticsLineUnit="次/分"
+        app:statisticsNumUnit="秒" />
+</LinearLayout>

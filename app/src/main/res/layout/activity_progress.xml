@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fly.myuiassemble.ProgressActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <SeekBar
+            android:id="@+id/seek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="100"
+            android:padding="10dp" />
+
+        <com.fly.viewlibrary.progress.UpdateProgressBar
+            android:id="@+id/pbNum"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:padding="10dp"
+            app:updateBarHeight="20dp"
+            app:updateMax="100"
+            app:updateProgress="0"
+            app:updateReachedBarColor="@color/colorPrimary"
+            app:updateTextColor="#FFFFFF"
+            app:updateUnreachedBarColor="#EBEBEB" />
+
+        <com.fly.viewlibrary.progress.SaleProgressBar
+            android:id="@+id/spv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:padding="10dp"
+            app:nearOverText="即将售罄"
+            app:overText="已售罄" />
+
+        <com.fly.viewlibrary.progress.ArcProgressBar
+            android:id="@+id/arcProgress"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            app:draggingEnabled="true" />
+    </LinearLayout>
+
+</ScrollView>
