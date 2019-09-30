@@ -210,4 +210,63 @@
         <attr name="calendar_content_view_id" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="SectorMenuButton">
+        <!--主按钮的大小-->
+        <attr name="aebMainButtonSizeDp" format="dimension|reference" />
+
+        <!--子按钮的大小-->
+        <attr name="aebSubButtonSizeDp" format="dimension|reference" />
+
+        <!--主按钮与子按钮之间的距离-->
+        <attr name="aebButtonGapDp" format="dimension|reference" />
+
+        <!--展开按钮的开始角度-->
+        <attr name="aebStartAngleDegree" format="integer|reference" />
+
+        <!--展开按钮的结束角度-->
+        <attr name="aebEndAngleDegree" format="integer|reference" />
+
+        <!--开启关闭菜单时播放动画的时间-->
+        <attr name="aebAnimDurationMillis" format="integer|reference" />
+
+        <!--按钮阴影效果的范围-->
+        <attr name="aebButtonElevation" format="dimension|reference" />
+
+        <!--当菜单为开启状态时全屏的背景颜色-->
+        <attr name="aebMaskBackgroundColor" format="color|reference" />
+
+        <!--当子按钮被选中，主按钮设置为选定状态-->
+        <attr name="aebIsSelectionMode" format="boolean" />
+
+        <!--主按钮的文字颜色-->
+        <attr name="aebMainButtonTextColor" format="color|reference" />
+
+        <!--子按钮文字颜色-->
+        <attr name="aebSubButtonTextColor" format="color|reference" />
+
+        <!--主按钮的文字大小-->
+        <attr name="aebMainButtonTextSizeSp" format="dimension|reference" />
+
+        <!--子按钮的文字大小-->
+        <attr name="aebSubButtonTextSizeSp" format="dimension|reference" />
+
+        <!--当按钮单点击时是否设置水波纹效果-->
+        <attr name="aebRippleEffect" format="boolean" />
+
+        <!--主按钮点击时水波纹效果的颜色，默认为按钮颜色-->
+        <attr name="aebRippleColor" format="color|reference"/>
+
+        <!--主按钮旋转动画的角度-->
+        <attr name="aebMainButtonRotateDegree" format="integer|reference"/>
+
+        <!--主按钮旋转动画的时间-->
+        <attr name="aebMainButtonRotateAnimDurationMillis" format="integer|reference"/>
+
+        <!--模糊背景-->
+        <attr name="aebBlurBackground" format="boolean" />
+
+        <!--模糊处理-->
+        <attr name="aebBlurRadius" format="float|reference"/>
+    </declare-styleable>
+
 </resources>

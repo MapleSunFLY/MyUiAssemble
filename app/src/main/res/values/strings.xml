@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MyUiAssemble</string>
     <string name="wave_side_search">搜索</string>
+
+    <string name="main_tab_scan_text">扫一扫</string>
+    <string name="main_tab_doctor_text">咨询医生</string>
+    <string name="main_tab_record_text">记录数据</string>
+    <string name="main_tab_porgramme_text">康复方案</string>
 </resources>

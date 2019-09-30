@@ -16,7 +16,7 @@ import java.util.List;
  * 包    名 : com.fly.myuiassemble.adapter
  * 作    者 : FLY
  * 创建时间 : 2019/9/26
- * 描述:
+ * 描述:字母排序Adapter
  */
 
 public class MySortAdapter extends SortAdapter {
