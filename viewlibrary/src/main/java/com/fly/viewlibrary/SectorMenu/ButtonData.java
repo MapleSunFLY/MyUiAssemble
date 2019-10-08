@@ -70,9 +70,6 @@ public class ButtonData implements Cloneable {
         return isMainButton;
     }
 
-    public void setIsIconButton(boolean isIconButton) {
-    }
-
     public String[] getTexts() {
         return texts;
     }

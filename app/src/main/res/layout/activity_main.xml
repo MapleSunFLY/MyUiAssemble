@@ -51,7 +51,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="2dp"
         app:aebAnimDurationMillis="150"
-        app:aebBlurBackground="true"
+        app:aebBlurBackground="false"
         app:aebButtonGapDp="72dp"
         app:aebEndAngleDegree="185"
         app:aebMainButtonRotateAnimDurationMillis="200"
@@ -59,7 +59,7 @@
         app:aebMainButtonSizeDp="54dp"
         app:aebMaskBackgroundColor="#99333333"
         app:aebStartAngleDegree="90"
-        app:aebSubButtonSizeDp="42dp"
+        app:aebSubButtonSizeDp="37dp"
         app:aebSubButtonTextColor="#ffffff"
-        app:aebSubButtonTextSizeSp="12dp" />
+        app:aebSubButtonTextSizeSp="10dp" />
 </RelativeLayout>

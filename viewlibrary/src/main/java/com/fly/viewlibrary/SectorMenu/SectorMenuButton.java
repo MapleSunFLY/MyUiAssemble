@@ -76,10 +76,11 @@ public class SectorMenuButton extends View implements ValueAnimator.AnimatorUpda
     private static final int DEFAULT_BUTTON_GAP_DP = 25;
     private static final int DEFAULT_BUTTON_MAIN_SIZE_DP = 60;
     private static final int DEFAULT_BUTTON_SUB_SIZE_DP = 60;
-    private static final int DEFAULT_BUTTON_ELEVATION_DP = 4;
+    private static final int DEFAULT_BUTTON_ELEVATION_DP = 5;
     private static final int DEFAULT_BUTTON_TEXT_SIZE_SP = 20;
     private static final int DEFAULT_START_ANGLE = 90;
     private static final int DEFAULT_END_ANGLE = 90;
+    private static final int DEFAULT_TEXT_PD = 2;
     private static final int DEFAULT_BUTTON_TEXT_COLOR = Color.BLACK;
     private static final int DEFAULT_MASK_BACKGROUND_COLOR = Color.TRANSPARENT;
     private static final int DEFAULT_BLUR_RADIUS = 1;
@@ -97,6 +98,7 @@ public class SectorMenuButton extends View implements ValueAnimator.AnimatorUpda
     private int subButtonTextSize;
     private int mainButtonTextColor;
     private int subButtonTextColor;
+    private int aebButtonTextPd;
     private int expandAnimDuration;
     private int maskBackgroundColor;
     private int buttonElevationPx;
@@ -183,11 +185,11 @@ public class SectorMenuButton extends View implements ValueAnimator.AnimatorUpda
         subButtonSizePx = ta.getDimensionPixelSize(R.styleable.SectorMenuButton_aebSubButtonSizeDp, dp2px(context, DEFAULT_BUTTON_SUB_SIZE_DP));
         buttonElevationPx = ta.getDimensionPixelSize(R.styleable.SectorMenuButton_aebButtonElevation, dp2px(context, DEFAULT_BUTTON_ELEVATION_DP));
         buttonSideMarginPx = buttonElevationPx * 2;
-        mainButtonTextSize = ta.getDimensionPixelSize(R.styleable.SectorMenuButton_aebMainButtonTextSizeSp, sp2px(context, DEFAULT_BUTTON_TEXT_SIZE_SP));
-        subButtonTextSize = ta.getDimensionPixelSize(R.styleable.SectorMenuButton_aebSubButtonTextSizeSp, sp2px(context, DEFAULT_BUTTON_TEXT_SIZE_SP));
+        mainButtonTextSize = ta.getDimensionPixelSize(R.styleable.SectorMenuButton_aebMainButtonTextSizeSp, dp2px(context, DEFAULT_BUTTON_TEXT_SIZE_SP));
+        subButtonTextSize = ta.getDimensionPixelSize(R.styleable.SectorMenuButton_aebSubButtonTextSizeSp, dp2px(context, DEFAULT_BUTTON_TEXT_SIZE_SP));
         mainButtonTextColor = ta.getColor(R.styleable.SectorMenuButton_aebMainButtonTextColor, DEFAULT_BUTTON_TEXT_COLOR);
         subButtonTextColor = ta.getColor(R.styleable.SectorMenuButton_aebSubButtonTextColor, DEFAULT_BUTTON_TEXT_COLOR);
-
+        aebButtonTextPd = ta.getDimensionPixelSize(R.styleable.SectorMenuButton_aebButtonTextPd, dp2px(context, DEFAULT_TEXT_PD));
         expandAnimDuration = ta.getInteger(R.styleable.SectorMenuButton_aebAnimDurationMillis, DEFAULT_EXPAND_ANIMATE_DURATION);
         rotateAnimDuration = ta.getInteger(R.styleable.SectorMenuButton_aebMainButtonRotateAnimDurationMillis, DEFAULT_ROTATE_ANIMATE_DURATION);
         maskBackgroundColor = ta.getInteger(R.styleable.SectorMenuButton_aebMaskBackgroundColor, DEFAULT_MASK_BACKGROUND_COLOR);
@@ -708,10 +710,11 @@ public class SectorMenuButton extends View implements ValueAnimator.AnimatorUpda
         canvas.drawOval(rectF, paint);
         Drawable drawable = buttonData.getIcon();
         if (drawable != null) {
-            int left = (int) rectF.left + dp2px(getContext(), buttonData.getIconPaddingDp());
-            int right = (int) rectF.right - dp2px(getContext(), buttonData.getIconPaddingDp());
-            int top = (int) rectF.top + dp2px(getContext(), buttonData.getIconPaddingDp());
-            int bottom = (int) rectF.bottom - dp2px(getContext(), buttonData.getIconPaddingDp());
+            int Dp = (int) ((rectF.right - rectF.left) * 0.0717 - dp2px(getContext(), buttonData.getIconPaddingDp()));
+            int left = (int) rectF.left - Dp;
+            int right = (int) rectF.right + Dp;
+            int top = (int) rectF.top - Dp;
+            int bottom = (int) rectF.bottom + Dp;
             drawable.setBounds(left, top, right, bottom);
             drawable.draw(canvas);
         }
@@ -742,7 +745,7 @@ public class SectorMenuButton extends View implements ValueAnimator.AnimatorUpda
         float offset = total / 2 - bottom;
         for (int i = 0; i < length; i++) {
             float yAxis = -(length - i - 1) * (-top + bottom) + offset;
-            canvas.drawText(strings[i], x, y + yAxis, textPaint);
+            canvas.drawText(strings[i], x, y + yAxis + aebButtonTextPd, textPaint);
         }
     }
 
@@ -851,11 +854,13 @@ public class SectorMenuButton extends View implements ValueAnimator.AnimatorUpda
     }
 
     public int sp2px(Context context, float spValue) {
+        if (spValue == 0) return 0;
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
 
     public int dp2px(Context context, float dpValue) {
+        if (dpValue == 0) return 0;
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }

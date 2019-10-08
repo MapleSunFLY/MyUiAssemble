@@ -250,6 +250,9 @@
         <!--子按钮的文字大小-->
         <attr name="aebSubButtonTextSizeSp" format="dimension|reference" />
 
+        <!--文本距离-->
+        <attr name="aebButtonTextPd" format="float|reference"/>
+
         <!--当按钮单点击时是否设置水波纹效果-->
         <attr name="aebRippleEffect" format="boolean" />
 
