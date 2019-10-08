@@ -22,7 +22,10 @@ package com.fly.viewlibrary.SectorMenu;
  * 描述: 点击回调
  */
 public interface ButtonEventListener {
+
     void onButtonClicked(int index);
+
     void onExpand();
+
     void onCollapse();
 }

@@ -263,7 +263,7 @@ public class SectorMenuButton extends View implements ValueAnimator.AnimatorUpda
         });
 
         //关闭菜单动画
-        collapseValueAnimator = ValueAnimator.ofFloat(1,0.3f);
+        collapseValueAnimator = ValueAnimator.ofFloat(1, 0.3f);
         collapseValueAnimator.setDuration(expandAnimDuration);
         collapseValueAnimator.setInterpolator(anticipateInterpolator);
         collapseValueAnimator.addUpdateListener(this);
@@ -721,7 +721,7 @@ public class SectorMenuButton extends View implements ValueAnimator.AnimatorUpda
             int textColor = buttonData.isMainButton() ? mainButtonTextColor : subButtonTextColor;
             textPaint = getTextPaint(sizePx, textColor);
             int size = buttonData.isMainButton() ? mainButtonSizePx : subButtonSizePx;
-            drawTexts(texts, canvas, rectF.centerX(), rectF.centerY()+ size*0.8f);
+            drawTexts(texts, canvas, rectF.centerX(), rectF.centerY() + size * 0.8f);
         }
     }
 
