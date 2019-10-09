@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 
 import com.fly.viewlibrary.progress.ArcProgressBar;
+import com.fly.viewlibrary.progress.CirclePercentBar;
 import com.fly.viewlibrary.progress.SaleProgressBar;
 import com.fly.viewlibrary.progress.UpdateProgressBar;
 
@@ -18,6 +19,7 @@ public class ProgressActivity extends AppCompatActivity {
         UpdateProgressBar updateProgressBar = findViewById(R.id.pbNum);
         SaleProgressBar saleProgressBar = findViewById(R.id.spv);
         ArcProgressBar arcProgress = findViewById(R.id.arcProgress);
+        CirclePercentBar circlePercentBar = findViewById(R.id.circlePercentBar);
 
         SeekBar seekBar = findViewById(R.id.seek);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -26,6 +28,7 @@ public class ProgressActivity extends AppCompatActivity {
                 updateProgressBar.setProgress(i);
                 saleProgressBar.setTotalAndCurrentCount(100, i);
                 arcProgress.setProgress(i);
+                circlePercentBar.setPercentage(i);
             }
 
             @Override

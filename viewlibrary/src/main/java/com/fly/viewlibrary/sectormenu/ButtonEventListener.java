@@ -1,4 +1,4 @@
-package com.fly.viewlibrary.SectorMenu;
+package com.fly.viewlibrary.sectormenu;
 
 /**
  * <pre>

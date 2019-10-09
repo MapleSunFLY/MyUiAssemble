@@ -1,4 +1,4 @@
-package com.fly.viewlibrary.SectorMenu;
+package com.fly.viewlibrary.sectormenu;
 
 import android.annotation.TargetApi;
 import android.content.Context;

@@ -49,6 +49,12 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             app:draggingEnabled="true" />
+
+        <com.fly.viewlibrary.progress.CirclePercentBar
+            android:id="@+id/circlePercentBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 
 </ScrollView>

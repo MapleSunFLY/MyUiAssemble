@@ -8,9 +8,9 @@ import android.util.Log;
 import android.view.View;
 
 import com.fly.myuiassemble.addressbook.WaveSideActivity;
-import com.fly.viewlibrary.SectorMenu.ButtonData;
-import com.fly.viewlibrary.SectorMenu.ButtonEventListener;
-import com.fly.viewlibrary.SectorMenu.SectorMenuButton;
+import com.fly.viewlibrary.sectormenu.ButtonData;
+import com.fly.viewlibrary.sectormenu.ButtonEventListener;
+import com.fly.viewlibrary.sectormenu.SectorMenuButton;
 
 import java.util.ArrayList;
 import java.util.List;
