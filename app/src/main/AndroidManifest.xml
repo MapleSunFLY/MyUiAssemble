@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fly.myuiassemble">
 
-    <!--获取通讯录-->
+    <!-- 获取通讯录 -->
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
@@ -22,7 +22,11 @@
         </activity>
         <activity android:name=".LineActivity" />
         <activity android:name=".ProgressActivity" />
-        <activity android:name=".addressbook.WaveSideActivity"></activity>
+        <activity android:name=".addressbook.WaveSideActivity" />
+        <activity
+            android:name=".ActionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

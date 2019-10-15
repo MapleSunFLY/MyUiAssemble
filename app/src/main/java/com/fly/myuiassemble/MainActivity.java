@@ -71,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnSort:
                 intent.setClass(MainActivity.this, WaveSideActivity.class);
                 break;
+            case R.id.btnAction:
+                intent.setClass(MainActivity.this, ActionActivity.class);
+                break;
             default:
                 Log.d("FLY", "onClick: " + view.getId());
                 return;
