@@ -29,12 +29,30 @@ import android.graphics.drawable.Drawable;
 public class ButtonData implements Cloneable {
     private static final int DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 
-    private boolean isMainButton = false;//main button is the button you see when buttons are all collapsed
+    /**
+     * main button is the button you see when buttons are all collapsed
+     */
+    private boolean isMainButton = false;
 
-    private String[] texts;//String array that you want to show at button center,texts[i] will be shown at the ith row
-    private Drawable icon;//icon drawable that will be shown at button center
-    private float iconPaddingDp;//the padding of the icon drawable in button
-    private int backgroundColor = DEFAULT_BACKGROUND_COLOR;//the background color of the button
+    /**
+     * String array that you want to show at button center,texts[i] will be shown at the ith row
+     */
+    private String[] texts;
+
+    /**
+     * icon drawable that will be shown at button center
+     */
+    private Drawable icon;
+
+    /**
+     * the padding of the icon drawable in button
+     */
+    private float iconPaddingDp;
+
+    /**
+     * the background color of the button
+     */
+    private int backgroundColor = DEFAULT_BACKGROUND_COLOR;
 
     @Override
     protected Object clone() throws CloneNotSupportedException {

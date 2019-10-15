@@ -23,9 +23,20 @@ package com.fly.viewlibrary.sectormenu;
  */
 public interface ButtonEventListener {
 
+    /**
+     * click item
+     *
+     * @param index
+     */
     void onButtonClicked(int index);
 
+    /**
+     * 打开
+     */
     void onExpand();
 
+    /**
+     * 关闭
+     */
     void onCollapse();
 }
