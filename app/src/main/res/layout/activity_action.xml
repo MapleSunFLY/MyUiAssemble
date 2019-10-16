@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fly.myuiassemble.ActionActivity">
+    tools:context="com.fly.myuiassemble.action.ActionActivity">
 
     <com.shangyi.android.actionplay.view.CustomVideoPlayerView
         android:id="@+id/playerView"

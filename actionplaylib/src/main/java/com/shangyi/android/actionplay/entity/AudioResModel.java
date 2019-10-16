@@ -16,7 +16,7 @@ public interface AudioResModel {
     String getAudioId();
 
     /**
-     * 返回音频优先级
+     * 返回音频优先级 数值越大优先级越高
      *
      * @return int
      */
