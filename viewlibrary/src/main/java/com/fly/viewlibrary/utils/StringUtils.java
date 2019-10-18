@@ -1,5 +1,7 @@
 package com.fly.viewlibrary.utils;
 
+import android.text.TextUtils;
+
 import java.text.DecimalFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +23,15 @@ public class StringUtils {
     public static String twoPointNum(float money) {
         DecimalFormat format = new DecimalFormat("#0.00");
         return format.format(money);
+    }
+
+    public static String doubleString(double num, String pattern) {
+        if(TextUtils.isEmpty(pattern)) {
+            pattern = "0.00";
+        }
+
+        DecimalFormat decimalFormat = new DecimalFormat(pattern);
+        return decimalFormat.format(num);
     }
 
     /**

@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="IndexLineCartView">
+        <!--虚线属性-->
+        <attr name="iLCDottedLineHeight" format="dimension" />
+        <attr name="iLCDottedLineColor" format="color" />
+        <attr name="iLCDottedSpacing" format="dimension" />
+
+        <!--实线属性-->
+        <attr name="iLCSolidLineColor" format="color" />
+        <attr name="iLCSolidLineHeight" format="dimension" />
+
+        <!--点与值的属性-->
+        <attr name="iLCPointColor" format="color" />
+        <attr name="iLCPointRadius" format="dimension" />
+        <attr name="iLCValueSize" format="dimension" />
+
+
+        <!--底部文本-->
+        <attr name="iLCBottomTextColor" format="color" />
+        <attr name="iLCBottomTextSize" format="dimension" />
+
+        <!--左边文本-->
+        <attr name="iLCLeftTextColor" format="color" />
+        <attr name="iLCLeftTextSize" format="dimension" />
+
+        <!--x点之间的间距-->
+        <attr name="iLCXInterval" format="dimension" />
+
+        <!--背景色：控件背景有透明度时需要设置背景底色和透明色-->
+        <attr name="iLCBackgroundColor" format="color" />
+        <attr name="iLCTransparentColor" format="color" />
+    </declare-styleable>
     <declare-styleable name="LineCartView">
 
         <attr name="lineCartDottedLineHeight" format="dimension" />
@@ -23,10 +54,15 @@
     </declare-styleable>
 
     <declare-styleable name="StatisticsLineChart">
+        <!--数字单位-->
         <attr name="statisticsNumUnit" format="string" />
+        <!--折线单位-->
         <attr name="statisticsLineUnit" format="string" />
+        <!--折线颜色-->
         <attr name="statisticsLineColor" format="color" />
+        <!--虚线颜色-->
         <attr name="statisticsDottedLineColor" format="color" />
+        <!--实线颜色-->
         <attr name="statisticsSolidLineColor" format="color" />
         <attr name="statisticsMaxBackgroundColor" format="color" />
         <attr name="statisticsMinBackgroundColor" format="color" />

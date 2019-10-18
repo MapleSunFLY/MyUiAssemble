@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/common_white_color"
     tools:context="com.fly.myuiassemble.LineActivity">
 
     <com.fly.viewlibrary.statistics.line.LineCartView
@@ -35,4 +36,14 @@
         android:padding="8dp"
         app:statisticsLineUnit="次/分"
         app:statisticsNumUnit="秒" />
+
+    <com.fly.viewlibrary.statistics.line.index.IndexLineCartView
+        android:id="@+id/indexLineCartView"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="15dp"
+        android:background="#17BCA573" />
 </LinearLayout>
