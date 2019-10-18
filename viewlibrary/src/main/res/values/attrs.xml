@@ -12,6 +12,7 @@
 
         <!--点与值的属性-->
         <attr name="iLCPointColor" format="color" />
+        <attr name="iLCExceptionsPointColor" format="color" />
         <attr name="iLCPointRadius" format="dimension" />
         <attr name="iLCValueSize" format="dimension" />
 
@@ -30,6 +31,9 @@
         <!--背景色：控件背景有透明度时需要设置背景底色和透明色-->
         <attr name="iLCBackgroundColor" format="color" />
         <attr name="iLCTransparentColor" format="color" />
+
+        <!--区间文本大小-->
+        <attr name="iLCRangeTextSize" format="dimension" />
     </declare-styleable>
     <declare-styleable name="LineCartView">
 
@@ -306,25 +310,25 @@
         <attr name="aebSubButtonTextSizeSp" format="dimension|reference" />
 
         <!--文本距离-->
-        <attr name="aebButtonTextPd" format="float|reference"/>
+        <attr name="aebButtonTextPd" format="float|reference" />
 
         <!--当按钮单点击时是否设置水波纹效果-->
         <attr name="aebRippleEffect" format="boolean" />
 
         <!--主按钮点击时水波纹效果的颜色，默认为按钮颜色-->
-        <attr name="aebRippleColor" format="color|reference"/>
+        <attr name="aebRippleColor" format="color|reference" />
 
         <!--主按钮旋转动画的角度-->
-        <attr name="aebMainButtonRotateDegree" format="integer|reference"/>
+        <attr name="aebMainButtonRotateDegree" format="integer|reference" />
 
         <!--主按钮旋转动画的时间-->
-        <attr name="aebMainButtonRotateAnimDurationMillis" format="integer|reference"/>
+        <attr name="aebMainButtonRotateAnimDurationMillis" format="integer|reference" />
 
         <!--模糊背景-->
         <attr name="aebBlurBackground" format="boolean" />
 
         <!--模糊处理-->
-        <attr name="aebBlurRadius" format="float|reference"/>
+        <attr name="aebBlurRadius" format="float|reference" />
     </declare-styleable>
 
 </resources>

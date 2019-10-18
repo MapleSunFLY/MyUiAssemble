@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -73,7 +73,7 @@ public class IndexLineCartView extends View {
     /**
      * 虚线里左边的间距
      */
-    private float mDottedSpacing = 20;
+    private float mDottedSpacing = 24;
 
     /**
      * 实线颜色
@@ -89,6 +89,11 @@ public class IndexLineCartView extends View {
      * 点的颜色
      */
     private int mPointColor = 0xffff6770;
+
+    /**
+     * 异常点的颜色
+     */
+    private int mExceptionsPointColor = 0xffd0021b;
 
     /**
      * 点的半径
@@ -184,6 +189,16 @@ public class IndexLineCartView extends View {
      */
     private int mTransparentColor = 0x17BCA573;
 
+    /**
+     * 区间文本大小
+     */
+    private float mRangeTextSize = 20;
+
+    /**
+     * 区间
+     */
+    private List<? extends IndexRangeMode> mNormalValueRange;
+
     public IndexLineCartView(Context context) {
         this(context, null);
     }
@@ -219,6 +234,7 @@ public class IndexLineCartView extends View {
 
         //点与值的参数
         mPointColor = array.getColor(R.styleable.IndexLineCartView_iLCPointColor, mPointColor);
+        mExceptionsPointColor = array.getColor(R.styleable.IndexLineCartView_iLCExceptionsPointColor, mExceptionsPointColor);
         mPointRadius = array.getDimension(R.styleable.IndexLineCartView_iLCPointRadius, ViewUtils.dip2px(context, mPointRadius));
         mValueSize = array.getDimension(R.styleable.IndexLineCartView_iLCValueSize, ViewUtils.dip2px(context, mValueSize));
 
@@ -237,6 +253,8 @@ public class IndexLineCartView extends View {
         //控件背景有透明度时需要设置背景底色和透明色
         mBackgroundColor = array.getColor(R.styleable.IndexLineCartView_iLCBackgroundColor, mBackgroundColor);
         mTransparentColor = array.getColor(R.styleable.IndexLineCartView_iLCTransparentColor, mTransparentColor);
+
+        mRangeTextSize = array.getDimension(R.styleable.IndexLineCartView_iLCBottomTextSize, ViewUtils.dip2px(context, mRangeTextSize));
 
         array.recycle();
     }
@@ -298,7 +316,7 @@ public class IndexLineCartView extends View {
 
 
     /**
-     * 绘制虚线
+     * 绘制虚线 和 正常区间
      *
      * @param minValueHeight 折线最小值高度
      * @param proportion     折线高度比例
@@ -316,8 +334,31 @@ public class IndexLineCartView extends View {
             path.moveTo(getPaddingLeft() + mDottedSpacing, coordinateY);
             path.lineTo(width, coordinateY);
             canvas.drawPath(path, mDottedPaint);
-
             canvas.drawText(String.valueOf(ectionsDatum), getPaddingLeft() + ViewUtils.dip2px(getContext(), 2), coordinateY + mLeftTextSize / 2, mPaint);
+        }
+
+        if (listIsNotNull(mNormalValueRange)) {
+
+            for (IndexRangeMode mode : mNormalValueRange) {
+                if (mode.getNormalRangeColor() != null) {
+                    mPaint.setStyle(Paint.Style.FILL);
+                    mPaint.setColor(mode.getNormalRangeColor());
+                    float minY = (float) (minValueHeight + (min - mode.getMinNormalValue()) * proportion);
+                    float maxY = (float) (minValueHeight + (min - mode.getMaxNormalValue()) * proportion);
+                    canvas.drawRect(getPaddingLeft() + mDottedSpacing, maxY, width, minY, mPaint);
+                }
+
+                if (!TextUtils.isEmpty(mode.getNormalDescribe()) && mode.getNormalTextColor() != null) {
+                    mPaint.setTextSize(mRangeTextSize);
+                    mPaint.setColor(mode.getNormalTextColor());
+                    float v = mPaint.measureText(mode.getNormalDescribe());
+                    float textX = (width - getPaddingLeft() - mDottedSpacing) / 2 + getPaddingLeft() + mDottedSpacing - v / 2;
+                    float value = mode.getMinNormalValue() + (mode.getMaxNormalValue() - mode.getMinNormalValue()) / 2;
+                    float textY = (float) (minValueHeight + (min - value) * proportion + mRangeTextSize / 3);
+                    canvas.drawText(mode.getNormalDescribe(), textX, textY, mPaint);
+                }
+
+            }
         }
     }
 
@@ -347,6 +388,12 @@ public class IndexLineCartView extends View {
                     //画小圆点
                     mPaint.setStyle(Paint.Style.FILL);
                     mPaint.setColor(mPointColor);
+                    if (listIsNotNull(mNormalValueRange) && mNormalValueRange.size() > j) {
+                        IndexRangeMode mode = mNormalValueRange.get(j);
+                        if (d > mode.getMaxNormalValue() || d < mode.getMinNormalValue()) {
+                            mPaint.setColor(mExceptionsPointColor);
+                        }
+                    }
                     canvas.drawCircle(x, coordinateY, mPointRadius, mPaint);
 
                     //画数据对应值得文本
@@ -357,9 +404,18 @@ public class IndexLineCartView extends View {
 
                     //画底部文本
                     if (j == 0) {
-                        float timeY = height + getPaddingBottom() - mLeftTextSize / 2;
-
                         mPaint.setColor(mBottomTextColor);
+                        for (int g = 0; g < indexLineMode.getValues().size(); g++) {
+                            Double a = indexLineMode.getValues().get(g);
+                            if (listIsNotNull(mNormalValueRange) && mNormalValueRange.size() > g) {
+                                IndexRangeMode mode = mNormalValueRange.get(g);
+                                if (a > mode.getMaxNormalValue() || a < mode.getMinNormalValue()) {
+                                    mPaint.setColor(mExceptionsPointColor);
+                                }
+                            }
+                        }
+
+                        float timeY = height + getPaddingBottom() - mLeftTextSize / 2;
                         mPaint.setTextSize(mBottomTextSize);
                         float dateT = mPaint.measureText(String.valueOf(d));
                         String date = TimeUtils.format(indexLineMode.getRecordTime(), dateFormat);
@@ -391,13 +447,12 @@ public class IndexLineCartView extends View {
         int leftX2 = (int) (getPaddingLeft() + mDottedSpacing);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(mBackgroundColor);
-        canvas.drawRect(0, maxValueHeight, leftX2, minValueHeight, mPaint);// 长方形
-        canvas.drawRect(width, maxValueHeight, getWidth(), minValueHeight, mPaint);// 长方形
-        if (mTransparentColor > 0) {
-            mPaint.setColor(mTransparentColor);
-            canvas.drawRect(0, maxValueHeight, leftX2, minValueHeight, mPaint);// 长方形
-            canvas.drawRect(width, maxValueHeight, getWidth(), minValueHeight, mPaint);// 长方形
-        }
+        canvas.drawRect(0, maxValueHeight, leftX2, minValueHeight, mPaint);
+        canvas.drawRect(width, maxValueHeight, getWidth(), minValueHeight, mPaint);
+
+        mPaint.setColor(mTransparentColor);
+        canvas.drawRect(0, maxValueHeight, leftX2, minValueHeight, mPaint);
+        canvas.drawRect(width, maxValueHeight, getWidth(), minValueHeight, mPaint);
     }
 
     private boolean listIsNotNull(List list) {
@@ -491,12 +546,12 @@ public class IndexLineCartView extends View {
                             String s = StringUtils.doubleString(aDouble, pattern);
                             list.add(Double.parseDouble(s));
                         } else {
-                            Log.e("setData", "折线数据值不能为空且必须位数相同");
+                            Log.e("IndexLineCartView", "折线数据值不能为空且必须位数相同");
                             return;
                         }
                     }
                 } else {
-                    Log.e("setData", "折线数据值不能为空且必须位数相同");
+                    Log.e("IndexLineCartView", "折线数据值不能为空且必须位数相同");
                     return;
                 }
             }
@@ -510,6 +565,45 @@ public class IndexLineCartView extends View {
             min = Collections.min(list);
             isFirst = true;
             invalidate();
+        }
+    }
+
+    /**
+     * 设置区间列表
+     *
+     * @param mNormalValueRange
+     */
+    public void setNormalValueRange(List<? extends IndexRangeMode> mNormalValueRange) {
+        if (listIsNotNull(mNormalValueRange)) {
+            for (IndexRangeMode mode : mNormalValueRange) {
+                if (mode.getMaxNormalValue() != null && mode.getMinNormalValue() != null) {
+                    if (ectionsData == null) ectionsData = new HashSet<>();
+                    ectionsData.add(mode.getMaxNormalValue());
+                    ectionsData.add(mode.getMinNormalValue());
+                } else {
+                    Log.e("IndexLineCartView", "正常值区间上下限均不能为空");
+                    return;
+                }
+            }
+            this.mNormalValueRange = mNormalValueRange;
+            setLeftData(ectionsData);
+        }
+    }
+
+    /**
+     * 清理区间
+     */
+    public void cleanRange() {
+        if (listIsNotNull(mNormalValueRange)) {
+            for (IndexRangeMode mode : mNormalValueRange) {
+                if (ectionsData != null) {
+                    ectionsData.remove(mode.getMaxNormalValue());
+                    ectionsData.remove(mode.getMinNormalValue());
+                }
+            }
+            mNormalValueRange.clear();
+            mNormalValueRange = null;
+            setLeftData(ectionsData);
         }
     }
 }

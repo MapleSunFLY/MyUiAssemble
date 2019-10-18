@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.fly.viewlibrary.statistics.line.LineCartView;
 import com.fly.viewlibrary.statistics.line.StatisticsLineChartView;
 import com.fly.viewlibrary.statistics.line.index.IndexLineCartView;
+import com.fly.viewlibrary.statistics.line.index.IndexRangeEntity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,12 +42,13 @@ public class LineActivity extends AppCompatActivity {
         IndexLineCartView indexLineCartView = findViewById(R.id.indexLineCartView);
 
         HashSet<Integer> hashSet = new HashSet<>();
-        hashSet.add(0);
-        hashSet.add(40);
-        hashSet.add(60);
-        hashSet.add(80);
-
+        hashSet.add(30);
         indexLineCartView.setLeftData(hashSet);
+
+        List<IndexRangeEntity> entities = new ArrayList<>();
+        entities.add(new IndexRangeEntity(120, 90, "舒张压", 0x0a4a90e2, 0x324a90e2));
+        entities.add(new IndexRangeEntity(80, 50, "收缩压", 0x0a5addaf, 0x325addaf));
+        indexLineCartView.setNormalValueRange(entities);
 
         List<IndexLineEntity> indexLineEntities = new ArrayList<>();
 
@@ -54,8 +56,8 @@ public class LineActivity extends AppCompatActivity {
         long time1 = System.currentTimeMillis();
         entity1.setTime(time1);
         List<Double> list1 = new ArrayList<>();
-        list1.add(20d);
-        list1.add(80d);
+        list1.add(121d);
+        list1.add(61d);
         entity1.setList(list1);
         indexLineEntities.add(entity1);
 
@@ -63,7 +65,7 @@ public class LineActivity extends AppCompatActivity {
         long time2 = System.currentTimeMillis() - 1 * 24 * 60 * 60 * 1000;
         entity2.setTime(time2);
         List<Double> list2 = new ArrayList<>();
-        list2.add(40d);
+        list2.add(102d);
         list2.add(50d);
         entity2.setList(list2);
         indexLineEntities.add(entity2);
@@ -72,35 +74,35 @@ public class LineActivity extends AppCompatActivity {
         long time3 = System.currentTimeMillis() - 2 * 24 * 60 * 60 * 1000;
         entity3.setTime(time3);
         List<Double> list3 = new ArrayList<>();
-        list3.add(50d);
-        list3.add(60d);
+        list3.add(90d);
+        list3.add(30d);
         entity3.setList(list3);
         indexLineEntities.add(entity3);
 
         IndexLineEntity entity4 = new IndexLineEntity();
-        long time4 = System.currentTimeMillis() - 2 * 24 * 60 * 60 * 1000;
+        long time4 = System.currentTimeMillis() - 3 * 24 * 60 * 60 * 1000;
         entity4.setTime(time4);
         List<Double> list4 = new ArrayList<>();
-        list4.add(60d);
-        list4.add(80d);
+        list4.add(78d);
+        list4.add(56d);
         entity4.setList(list4);
         indexLineEntities.add(entity4);
 
         IndexLineEntity entity5 = new IndexLineEntity();
-        long time5 = System.currentTimeMillis() - 2 * 24 * 60 * 60 * 1000;
+        long time5 = System.currentTimeMillis() - 4 * 24 * 60 * 60 * 1000;
         entity5.setTime(time5);
         List<Double> list5 = new ArrayList<>();
-        list5.add(50d);
-        list5.add(70d);
+        list5.add(98d);
+        list5.add(48d);
         entity5.setList(list5);
         indexLineEntities.add(entity5);
 
         IndexLineEntity entity6 = new IndexLineEntity();
-        long time6 = System.currentTimeMillis() - 4 * 24 * 60 * 60 * 1000;
+        long time6 = System.currentTimeMillis() - 5 * 24 * 60 * 60 * 1000;
         entity6.setTime(time6);
         List<Double> list6 = new ArrayList<>();
-        list6.add(50d);
-        list6.add(80d);
+        list6.add(98d);
+        list6.add(48d);
         entity6.setList(list6);
         indexLineEntities.add(entity6);
 
