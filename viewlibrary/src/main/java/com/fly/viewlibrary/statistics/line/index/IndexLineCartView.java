@@ -286,7 +286,7 @@ public class IndexLineCartView extends View {
             float length = xInterval * size;
 
             mPaint.setTextSize(mBottomTextSize);
-            float v = mPaint.measureText("12-23");
+            float v = mPaint.measureText(dateFormat);
             float realLength = width - mDottedSpacing - v;
             if (length <= realLength) {
                 minXinit = maxXinit = xInit = length + mDottedSpacing + v;
