@@ -8,12 +8,12 @@
 
     <com.shangyi.actionplay.view.CustomVideoPlayerView
         android:id="@+id/playerView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
         app:player_layout_id="@layout/common_simple_exo_view"
-        app:resize_mode="fixed_height"
+        app:resize_mode="zoom"
         app:surface_type="surface_view" />
 
 </RelativeLayout>

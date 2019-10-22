@@ -8,8 +8,21 @@
         <!--预览是否有touch事件-->
         <attr name="hide_on_touch" format="boolean" />
         <!--视频渲染方式-->
+        <!--
+         fit (默认) 自适应，减少或增加宽度或高度，取决于视频本身的款高比，同ImageView的centerInside
+         fixed_width 宽度是固定，通过减少或者增加高度的值来实现想要的宽高比。
+         fixed_height 高度固定，通过减少或者增加宽度的值来实现想要的宽高比。
+         fill 表示不考虑指定的宽高比。
+         zoom 表示通过增加宽度或者高度，来达到想要的视频宽高比。
+         注意：所有缩放策略都是在playerView指定宽高下对内部View-contentFrame(AspectRatioFrameLayout)的缩放，而不是对playerView的缩放
+         -->
         <attr name="resize_mode" />
         <!--view渲染方式-->
+        <!--
+        可以指定播放器View使用TextureView还是SurfaceView
+        texture_view
+        surface_view
+        -->
         <attr name="surface_type" />
         <!--水印占位图-->
         <attr name="user_watermark" format="reference" />
