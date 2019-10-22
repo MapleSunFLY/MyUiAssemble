@@ -1,6 +1,6 @@
-package com.shangyi.android.actionplay.interf;
+package com.shangyi.actionplay.interf;
 
-import com.shangyi.android.actionplay.exo.CustomExoPlayer;
+import com.shangyi.actionplay.exo.CustomExoPlayer;
 
 /**
  *

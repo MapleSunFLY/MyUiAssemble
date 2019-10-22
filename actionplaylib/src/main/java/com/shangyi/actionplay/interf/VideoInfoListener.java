@@ -1,4 +1,4 @@
-package com.shangyi.android.actionplay.interf;
+package com.shangyi.actionplay.interf;
 
 import android.support.annotation.Nullable;
 

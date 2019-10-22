@@ -8,11 +8,11 @@ import com.fly.myuiassemble.R;
 import com.fly.myuiassemble.action.entity.VideoEntity;
 import com.fly.myuiassemble.util.PermissionUtils;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.shangyi.android.actionplay.audio.PriorityAudioPlayer;
-import com.shangyi.android.actionplay.exo.CustomExoPlayer;
-import com.shangyi.android.actionplay.interf.VideoInfoListener;
-import com.shangyi.android.actionplay.interf.VideoWindowListener;
-import com.shangyi.android.actionplay.view.CustomVideoPlayerView;
+import com.shangyi.actionplay.audio.PriorityAudioPlayer;
+import com.shangyi.actionplay.exo.CustomExoPlayer;
+import com.shangyi.actionplay.interf.VideoInfoListener;
+import com.shangyi.actionplay.interf.VideoWindowListener;
+import com.shangyi.actionplay.view.CustomVideoPlayerView;
 
 import java.io.File;
 import java.io.FileOutputStream;

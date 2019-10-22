@@ -1,6 +1,6 @@
 package com.fly.myuiassemble.action.entity;
 
-import com.shangyi.android.actionplay.entity.AudioResModel;
+import com.shangyi.actionplay.entity.AudioResModel;
 
 /**
  * 包    名 : com.fly.myuiassemble.action.entity

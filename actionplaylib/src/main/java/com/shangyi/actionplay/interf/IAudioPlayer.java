@@ -1,6 +1,6 @@
-package com.shangyi.android.actionplay.interf;
+package com.shangyi.actionplay.interf;
 
-import com.shangyi.android.actionplay.entity.AudioResModel;
+import com.shangyi.actionplay.entity.AudioResModel;
 
 /**
  * packageName: design.demo.shangyi.com.myapplication.exo.controller

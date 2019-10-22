@@ -1,4 +1,4 @@
-package com.shangyi.android.actionplay.interf;
+package com.shangyi.actionplay.interf;
 
 import com.google.android.exoplayer2.upstream.DataSource;
 

@@ -1,7 +1,7 @@
 package com.fly.myuiassemble.action.entity;
 
-import com.shangyi.android.actionplay.entity.AudioResModel;
-import com.shangyi.android.actionplay.entity.VideoResModel;
+import com.shangyi.actionplay.entity.AudioResModel;
+import com.shangyi.actionplay.entity.VideoResModel;
 
 /**
  * <pre>

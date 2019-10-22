@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.fly.myuiassemble.action.ActionActivity">
 
-    <com.shangyi.android.actionplay.view.CustomVideoPlayerView
+    <com.shangyi.actionplay.view.CustomVideoPlayerView
         android:id="@+id/playerView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

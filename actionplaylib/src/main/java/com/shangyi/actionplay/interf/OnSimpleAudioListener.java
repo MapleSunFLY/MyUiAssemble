@@ -1,9 +1,9 @@
-package com.shangyi.android.actionplay.interf;
+package com.shangyi.actionplay.interf;
 
 
 import android.media.MediaPlayer;
 
-import com.shangyi.android.actionplay.entity.AudioResModel;
+import com.shangyi.actionplay.entity.AudioResModel;
 
 
 /**

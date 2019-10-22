@@ -1,4 +1,4 @@
-package com.shangyi.android.actionplay.entity;
+package com.shangyi.actionplay.entity;
 
 /**
  * 包    名 : com.shangyi.android.actionplay.entity.interf

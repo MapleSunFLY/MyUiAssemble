@@ -1,12 +1,12 @@
-package com.shangyi.android.actionplay.audio;
+package com.shangyi.actionplay.audio;
 
 import android.media.MediaPlayer;
 import android.os.SystemClock;
 import android.util.Log;
 
-import com.shangyi.android.actionplay.entity.AudioResModel;
-import com.shangyi.android.actionplay.interf.IAudioPlayer;
-import com.shangyi.android.actionplay.interf.OnSimpleAudioListener;
+import com.shangyi.actionplay.entity.AudioResModel;
+import com.shangyi.actionplay.interf.IAudioPlayer;
+import com.shangyi.actionplay.interf.OnSimpleAudioListener;
 
 import java.io.IOException;
 

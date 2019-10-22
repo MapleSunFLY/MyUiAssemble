@@ -1,4 +1,4 @@
-package com.shangyi.android.actionplay.view;
+package com.shangyi.actionplay.view;
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,9 +24,9 @@ import android.widget.ImageView;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 
 import com.shangyi.android.actionplay.R;
-import com.shangyi.android.actionplay.exo.CustomExoPlayer;
-import com.shangyi.android.actionplay.interf.ExoPlayerListener;
-import com.shangyi.android.actionplay.interf.ExoPlayerViewListener;
+import com.shangyi.actionplay.exo.CustomExoPlayer;
+import com.shangyi.actionplay.interf.ExoPlayerListener;
+import com.shangyi.actionplay.interf.ExoPlayerViewListener;
 
 
 /**

@@ -1,6 +1,6 @@
 
 
-package com.shangyi.android.actionplay.exo;
+package com.shangyi.actionplay.exo;
 
 import android.content.Context;
 import android.net.Uri;
@@ -13,7 +13,6 @@ import android.util.Log;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener;
 import com.google.android.exoplayer2.source.ConcatenatingMediaSource;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.LoopingMediaSource;
@@ -30,8 +29,8 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
-import com.shangyi.android.actionplay.entity.VideoResModel;
-import com.shangyi.android.actionplay.interf.DataSourceListener;
+import com.shangyi.actionplay.entity.VideoResModel;
+import com.shangyi.actionplay.interf.DataSourceListener;
 
 import java.util.List;
 

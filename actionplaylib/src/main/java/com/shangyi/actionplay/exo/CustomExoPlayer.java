@@ -1,4 +1,4 @@
-package com.shangyi.android.actionplay.exo;
+package com.shangyi.actionplay.exo;
 
 import android.app.Activity;
 import android.content.Context;
@@ -38,14 +38,14 @@ import com.google.android.exoplayer2.util.Util;
 
 import java.util.List;
 
-import com.shangyi.android.actionplay.entity.VideoResModel;
-import com.shangyi.android.actionplay.interf.DataSourceListener;
-import com.shangyi.android.actionplay.interf.ExoPlayerListener;
-import com.shangyi.android.actionplay.interf.ExoPlayerViewListener;
-import com.shangyi.android.actionplay.interf.LoadListener;
-import com.shangyi.android.actionplay.interf.VideoInfoListener;
-import com.shangyi.android.actionplay.interf.VideoWindowListener;
-import com.shangyi.android.actionplay.view.CustomVideoPlayerView;
+import com.shangyi.actionplay.entity.VideoResModel;
+import com.shangyi.actionplay.interf.DataSourceListener;
+import com.shangyi.actionplay.interf.ExoPlayerListener;
+import com.shangyi.actionplay.interf.ExoPlayerViewListener;
+import com.shangyi.actionplay.interf.LoadListener;
+import com.shangyi.actionplay.interf.VideoInfoListener;
+import com.shangyi.actionplay.interf.VideoWindowListener;
+import com.shangyi.actionplay.view.CustomVideoPlayerView;
 
 
 /**

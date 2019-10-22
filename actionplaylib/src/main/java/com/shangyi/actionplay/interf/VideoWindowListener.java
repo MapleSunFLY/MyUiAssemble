@@ -1,4 +1,4 @@
-package com.shangyi.android.actionplay.interf;
+package com.shangyi.actionplay.interf;
 
 /**
  * packageName: design.demo.shangyi.com.myapplication.exo.listener
