@@ -15,6 +15,20 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            credentials {
+                username 'mavenuploader'
+                password 'postOp@2014'
+            }
+            url "http://maven.suifangyun.com/repository/maven-public"
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds' // 动态版本
+            resolutionStrategy.cacheChangingModulesFor 0, 'seconds' // 变化模块
+        }
     }
 }
 
