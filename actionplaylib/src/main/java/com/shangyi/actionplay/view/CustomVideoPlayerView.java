@@ -401,18 +401,6 @@ public class CustomVideoPlayerView extends FrameLayout implements CustomPlayback
         return !(resources == null || resources.getConfiguration() == null) && resources.getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
-    /**
-     * dp转px
-     *
-     * @param context 山下文
-     * @param dpValue dp单位
-     * @return int
-     */
-    public static int dip2px(@NonNull Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
-    }
-
     @Override
     public void onVisibilityChange(int visibility) {
         if (activity == null) {

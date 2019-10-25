@@ -1,15 +1,19 @@
 package com.fly.myuiassemble.action;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.fly.myuiassemble.R;
 import com.fly.myuiassemble.action.entity.VideoEntity;
 import com.fly.myuiassemble.util.PermissionUtils;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.shangyi.actionplay.audio.PriorityAudioPlayer;
 import com.shangyi.actionplay.exo.CustomExoPlayer;
+import com.shangyi.actionplay.interf.LoadImageMethod;
 import com.shangyi.actionplay.interf.VideoInfoListener;
 import com.shangyi.actionplay.interf.VideoWindowListener;
 import com.shangyi.actionplay.view.CustomVideoPlayerView;
@@ -41,11 +45,14 @@ public class ActionActivity extends AppCompatActivity {
             entity.audioPath = copyAssetAndWrite("153.MP3");
             // 初始化播放器对象
             CustomExoPlayer player = new CustomExoPlayer(this, playerView);
-            player.setUserController(true);
-            player.setLooping(Integer.MAX_VALUE);
-            player.setPlayDomain(entity);
-            player.setVideoInfoListener(videoInfoListener);
-            player.setOnWindowListener(windowListener);
+            player.setUserController(true)
+                    .setLooping(Integer.MAX_VALUE)
+                    .setVideoInfoListener(videoInfoListener)
+                    .setLoadImageMethod((Context context, String imageUrl, ImageView imageView) -> {
+                        Glide.with(context).load(imageUrl).into(imageView);
+                    })
+                    .setOnWindowListener(windowListener)
+                    .setPlayDomain(entity);
 
             //播放视频
             player.onPlayNoAlertVideo();

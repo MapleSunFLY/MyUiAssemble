@@ -35,17 +35,17 @@ import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
-
-import java.util.List;
-
 import com.shangyi.actionplay.entity.VideoResModel;
 import com.shangyi.actionplay.interf.DataSourceListener;
 import com.shangyi.actionplay.interf.ExoPlayerListener;
 import com.shangyi.actionplay.interf.ExoPlayerViewListener;
+import com.shangyi.actionplay.interf.LoadImageMethod;
 import com.shangyi.actionplay.interf.LoadListener;
 import com.shangyi.actionplay.interf.VideoInfoListener;
 import com.shangyi.actionplay.interf.VideoWindowListener;
 import com.shangyi.actionplay.view.CustomVideoPlayerView;
+
+import java.util.List;
 
 
 /**
@@ -58,39 +58,57 @@ import com.shangyi.actionplay.view.CustomVideoPlayerView;
 
 public class CustomExoPlayer {
     private static final String TAG = CustomExoPlayer.class.getName();
+
     /***当前活动**/
-    final Activity activity;
+    private final Activity activity;
+
     /***数据源管理类**/
-    MediaSourceBuilder mediaSourceBuilder;
+    private MediaSourceBuilder mediaSourceBuilder;
+
     /***内核播放器***/
-    SimpleExoPlayer player;
+    private SimpleExoPlayer player;
+
     /*** 多个视频接口***/
     private VideoWindowListener windowListener;
+
     /*** 视频回调信息接口 ***/
     private VideoInfoListener videoInfoListener;
+
     /***  视频状态回调接口 ***/
     protected ComponentListener componentListener;
+
     /*** 播放view实例***/
     private final CustomVideoPlayerView playerView;
+
     /*** view交互回调接口 ***/
     private PlayComponentListener playComponentListener;
+
     /*** 是否循环播放  0 不开启***/
     private int loopingCount = 0;
+
     /*** 设置播放参数***/
     private PlaybackParameters playbackParameters;
+
     /*** 获取当前进度 ***/
     private long resumePosition;
+
     /*** 获取当前视频窗口位置 ***/
     private int resumeWindow;
+
     /*** 屏蔽进度缩索引 ***/
-    int indexType = -1;
+    private int indexType = -1;
+
     /*** 是否手动暂停 ***/
-    Boolean handPause = false;
+    private Boolean handPause = false;
+
     /*** 播放view交互接口 ***/
     private ExoPlayerViewListener mPlayerViewListener;
+
     /**
-     *
+     * 图片加载方法
      */
+    private LoadImageMethod loadImageMethod;
+
     private boolean isFirst = true;
 
     /****
@@ -314,7 +332,6 @@ public class CustomExoPlayer {
     public void setPosition(int currWindowIndex, long currPosition) {
         this.resumeWindow = currWindowIndex;
         this.resumePosition = currPosition;
-
     }
 
     /***
@@ -334,8 +351,9 @@ public class CustomExoPlayer {
     /***
      * 隐藏控制布局
      * ***/
-    public void setUserController(boolean isControl) {
+    public CustomExoPlayer setUserController(boolean isControl) {
         getPlayerViewListener().setUserController(isControl);
+        return this;
     }
 
     /***
@@ -343,8 +361,9 @@ public class CustomExoPlayer {
      *
      * @param loopingCount  必须大于0
      **/
-    public void setLooping(@Size(min = 1) int loopingCount) {
+    public CustomExoPlayer setLooping(@Size(min = 1) int loopingCount) {
         this.loopingCount = loopingCount;
+        return this;
     }
 
     public void showControllerView() {
@@ -357,9 +376,15 @@ public class CustomExoPlayer {
     }
 
     public void setPreviewImage(Context context, String url) {
-        //Glide.with(context).load(url).into(playerView.getPreviewImage());
+        if (loadImageMethod != null) {
+            loadImageMethod.loadImage(context, url, playerView.getPreviewImage());
+        }
     }
 
+    public CustomExoPlayer setLoadImageMethod(LoadImageMethod loadImageMethod) {
+        this.loadImageMethod = loadImageMethod;
+        return this;
+    }
 
     public void showPreview(int visibility) {
         getPlayerViewListener().showPreview(visibility);
@@ -379,8 +404,9 @@ public class CustomExoPlayer {
      *
      * @param uri 路径
      ***/
-    public void setPlayUri(@NonNull String uri) {
+    public CustomExoPlayer setPlayUri(@NonNull String uri) {
         setPlayUri(Uri.parse(uri));
+        return this;
     }
 
     /****
@@ -388,16 +414,18 @@ public class CustomExoPlayer {
      * @param firstVideoUri  预览的视频
      * @param secondVideoUri 第二个视频
      **/
-    public void setPlayUri(@Size(min = 0) int indexType, @NonNull String firstVideoUri, @NonNull String secondVideoUri) {
+    public CustomExoPlayer setPlayUri(@Size(min = 0) int indexType, @NonNull String firstVideoUri, @NonNull String secondVideoUri) {
         setPlayUri(indexType, Uri.parse(firstVideoUri), Uri.parse(secondVideoUri));
+        return this;
     }
 
     /****
      * @param firstVideoUri  预览的视频
      * @param secondVideoUri 第二个视频
      **/
-    public void setPlayUri(@NonNull Uri firstVideoUri, @NonNull Uri secondVideoUri) {
+    public CustomExoPlayer setPlayUri(@NonNull Uri firstVideoUri, @NonNull Uri secondVideoUri) {
         setPlayUri(0, firstVideoUri, secondVideoUri);
+        return this;
     }
 
     /****
@@ -574,8 +602,9 @@ public class CustomExoPlayer {
      * 设置视频信息回调
      * @param videoInfoListener 实例
      * ***/
-    public void setVideoInfoListener(VideoInfoListener videoInfoListener) {
+    public CustomExoPlayer setVideoInfoListener(VideoInfoListener videoInfoListener) {
         this.videoInfoListener = videoInfoListener;
+        return this;
     }
 
     /**
@@ -583,8 +612,9 @@ public class CustomExoPlayer {
      *
      * @param windowListener 实例
      */
-    public void setOnWindowListener(VideoWindowListener windowListener) {
+    public CustomExoPlayer setOnWindowListener(VideoWindowListener windowListener) {
         this.windowListener = windowListener;
+        return this;
     }
 
     /***

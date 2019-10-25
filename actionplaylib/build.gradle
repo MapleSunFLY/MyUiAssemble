@@ -24,9 +24,6 @@ dependencies {
     //视频播放
     compile "com.google.android.exoplayer:exoplayer:${EXOPLAYER_VERSION}"
 
-    //图片加载
-    compile "com.github.bumptech.glide:glide:${GLIDE_VERSION}"
-
     //基础工具
     compile("com.rplus.android:android-utils:${ANDROID_UTILS_VERSION}") { changing = true }
 

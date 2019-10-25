@@ -29,6 +29,10 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     compile "com.android.support:multidex:${MULTIDEX_VERSION}"
+
+    //图片加载
+    compile "com.github.bumptech.glide:glide:${GLIDE_VERSION}"
+
     implementation project(':viewlibrary')
     implementation project(':actionplaylib')
 }

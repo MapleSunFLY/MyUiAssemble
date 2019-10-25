@@ -11,8 +11,8 @@ package com.shangyi.actionplay.interf;
 public interface LoadListener {
     /**
      * 进度
-     * @param pro 进度值 0-100
      *
-     * ***/
+     * @param pro 进度值 0-100
+     */
     void onProgress(long pro);
 }

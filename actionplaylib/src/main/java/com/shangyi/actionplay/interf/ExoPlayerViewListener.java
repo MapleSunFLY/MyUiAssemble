@@ -19,14 +19,14 @@ public interface ExoPlayerViewListener {
      * 设置水印图片
      *
      * @param res 资源id
-     ***/
+     */
     void setWatermarkImage(int res);
 
     /***
      * 显示隐藏错误布局
      *
      * @param visibility 显示类型
-     ***/
+     */
     void showErrorStateView(int visibility);
 
     /**

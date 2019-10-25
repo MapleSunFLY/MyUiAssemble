@@ -10,6 +10,8 @@ package com.shangyi.actionplay.interf;
 
 public interface VideoWindowListener {
     void onCurrentIndex(int currentWindowIndex, int windowCount);
+
     void onStart(int currentWindowIndex, int windowCount);
+
     void onOnlyHaveOneLoop();
 }
