@@ -6,4 +6,7 @@
     <string name="main_tab_doctor_text">咨询医生</string>
     <string name="main_tab_record_text">记录数据</string>
     <string name="main_tab_porgramme_text">康复方案</string>
+
+    <string name="start_login_verification_num_again_get">重新获取</string>
+    <string name="start_login_verification_num_resend_count">%1$s s</string>
 </resources>

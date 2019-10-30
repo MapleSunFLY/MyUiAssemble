@@ -31,6 +31,7 @@
             android:name=".action.ActionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="landscape" />
+        <activity android:name=".TimeActivity"></activity>
     </application>
 
 </manifest>

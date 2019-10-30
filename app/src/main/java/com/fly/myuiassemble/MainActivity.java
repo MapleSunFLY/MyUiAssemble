@@ -75,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnAction:
                 intent.setClass(MainActivity.this, ActionActivity.class);
                 break;
+            case R.id.btnTime:
+                intent.setClass(MainActivity.this, TimeActivity.class);
+                break;
             default:
                 Log.d("FLY", "onClick: " + view.getId());
                 return;
