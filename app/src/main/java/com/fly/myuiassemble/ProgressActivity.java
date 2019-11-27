@@ -1,15 +1,19 @@
 package com.fly.myuiassemble;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.SeekBar;
 
 import com.fly.viewlibrary.progress.ArcProgressBar;
 import com.fly.viewlibrary.progress.CirclePercentBar;
+import com.fly.viewlibrary.progress.DecimalScaleRulerProgressBar;
 import com.fly.viewlibrary.progress.SaleProgressBar;
 import com.fly.viewlibrary.progress.UpdateProgressBar;
 
 public class ProgressActivity extends AppCompatActivity {
+
+    public float number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,12 @@ public class ProgressActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
+        });
+
+        DecimalScaleRulerProgressBar mRulerWeight = findViewById(R.id.rulerHeight);
+        mRulerWeight.setValueChangeListener(value -> {
+            number = value;
+            Log.e("FLY110", "onCreate: " + number);
         });
     }
 }

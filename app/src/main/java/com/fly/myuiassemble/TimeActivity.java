@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.fly.myuiassemble.viewholder.TransitionPageViewViewHolder;
 import com.fly.viewlibrary.time.CustomCountDownTimer;
 import com.fly.viewlibrary.time.DownTimer;
 
@@ -27,11 +29,12 @@ public class TimeActivity extends AppCompatActivity {
 
     private DownTimer mDownTimer;
 
+    private TransitionPageViewViewHolder transitionPageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
-
         mCountDownTimer = new CustomCountDownTimer(this, findViewById(R.id.btnTime),
                 R.string.start_login_verification_num_again_get, R.string.start_login_verification_num_resend_count,
                 60000, 1000);
@@ -56,7 +59,7 @@ public class TimeActivity extends AppCompatActivity {
 
     private void initView() {
         findViewById(R.id.btnTime).setOnClickListener(v -> {
-            mCountDownTimer.start();
+           // mCountDownTimer.start();
         });
         findViewById(R.id.btnStart).setOnClickListener(v -> {
             mDownTimer.start();
@@ -72,6 +75,8 @@ public class TimeActivity extends AppCompatActivity {
         });
         tvDownTimer = findViewById(R.id.tvDownTimer);
         tvCountDownTimer = findViewById(R.id.tvCountDownTimer);
-
+        FrameLayout fl = findViewById(R.id.fl);
+        transitionPageView = TransitionPageViewViewHolder.createView(fl);
+        transitionPageView.start(5000,"下一个动作：aa");
     }
 }

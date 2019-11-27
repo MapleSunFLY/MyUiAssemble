@@ -1,6 +1,7 @@
 package com.fly.viewlibrary.time;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.CountDownTimer;
 import android.support.annotation.ColorRes;
 import android.widget.TextView;
@@ -32,7 +33,7 @@ public class CustomCountDownTimer extends CountDownTimer {
 
 
     private TextView mTv;
-    private Activity activity;
+    private Context activity;
     private int mResFinishId;
     private int mResTickId;
     private boolean isEnabled;
@@ -40,11 +41,11 @@ public class CustomCountDownTimer extends CountDownTimer {
     private int endColor;
     private OnFinishListener onFinishListener;
 
-    public CustomCountDownTimer(Activity act, TextView tt, int resFinishId, int resTickId, long millisInFuture, long countDownInterval) {
+    public CustomCountDownTimer(Context act, TextView tt, int resFinishId, int resTickId, long millisInFuture, long countDownInterval) {
         this(act, tt, resFinishId, resTickId, millisInFuture, countDownInterval, false, R.color.common_666666_color, R.color.common_999999_color);
     }
 
-    public CustomCountDownTimer(Activity act, TextView tt, int resFinishId, int resTickId, long millisInFuture,
+    public CustomCountDownTimer(Context act, TextView tt, int resFinishId, int resTickId, long millisInFuture,
                                 long countDownInterval, boolean isEnabled, @ColorRes int startColor, @ColorRes int endColor) {
         super(millisInFuture, countDownInterval);
         this.mTv = tt;

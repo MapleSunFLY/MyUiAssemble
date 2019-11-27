@@ -112,6 +112,24 @@
         <attr name="isNeedAnim" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="DecimalScaleRulerProgressBar">
+        <attr name="dsrAdvanceRate" format="dimension" />
+        <attr name="dsrDefaultValue" format="integer" />
+        <attr name="dsrMinValue" format="integer" />
+        <attr name="dsrMaxValue" format="integer" />
+        <attr name="dsrPerSpanValue" format="integer" />
+        <attr name="dsrItemSpacing" format="dimension" />
+        <attr name="dsrTextSize" format="dimension" />
+        <attr name="dsrMaxLineHeight" format="dimension" />
+        <attr name="dsrMiddleLineHeight" format="dimension" />
+        <attr name="dsrMinLineHeight" format="dimension" />
+        <attr name="dsrLineWidth" format="dimension" />
+        <attr name="dsrTextMarginTop" format="dimension" />
+        <attr name="dsrSelectWidth" format="dimension" />
+        <attr name="dsrSelectColor" format="color" />
+        <attr name="dsrLineColor" format="color" />
+    </declare-styleable>
+
     <declare-styleable name="CirclePercentView">
         <!--圆弧背景色-->
         <attr name="circleBgColor" format="reference" />

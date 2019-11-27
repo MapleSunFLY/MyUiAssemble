@@ -9,4 +9,7 @@
 
     <string name="start_login_verification_num_again_get">重新获取</string>
     <string name="start_login_verification_num_resend_count">%1$s s</string>
+
+    <string name="common_count_down">%1$s</string>
+    <string name="common_start">开始</string>
 </resources>
