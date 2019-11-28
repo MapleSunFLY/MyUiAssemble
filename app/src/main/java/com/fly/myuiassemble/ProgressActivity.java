@@ -13,8 +13,6 @@ import com.fly.viewlibrary.progress.UpdateProgressBar;
 
 public class ProgressActivity extends AppCompatActivity {
 
-    public float number;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +45,8 @@ public class ProgressActivity extends AppCompatActivity {
         });
 
         DecimalScaleRulerProgressBar mRulerWeight = findViewById(R.id.rulerHeight);
-        mRulerWeight.setValueChangeListener(value -> {
-            number = value;
-            Log.e("FLY110", "onCreate: " + number);
+        mRulerWeight.setValueChangeListener((i, d) -> {
+            Log.e("FLY110", "onCreate: " + i + "," + d);
         });
     }
 }

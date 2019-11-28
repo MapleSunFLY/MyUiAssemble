@@ -56,7 +56,7 @@ public class DecimalScaleRulerProgressBar extends View {
     /**
      * 默认值
      */
-    private float mDefaultValue;
+    private int mDefaultValue;
 
     /**
      * 当前小格子
@@ -230,17 +230,6 @@ public class DecimalScaleRulerProgressBar extends View {
         setVisibility(VISIBLE);
     }
 
-
-    /**
-     * 设置间隔值
-     *
-     * @param mPerSpanValue
-     */
-    public void setPerSpanValue(int mPerSpanValue) {
-        this.mPerSpanValue = mPerSpanValue;
-        initViewParam();
-    }
-
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -259,7 +248,7 @@ public class DecimalScaleRulerProgressBar extends View {
     }
 
     /**
-     * 画中间的红色指示线、阴影等。指示线两端简单的用了两个矩形代替
+     * 画中间的红色指示线
      *
      * @param canvas
      */
@@ -293,8 +282,8 @@ public class DecimalScaleRulerProgressBar extends View {
             } else {
                 height = mMinLineHeight;
             }
-            scale = 1 - Math.abs(left - srcPointX) / srcPointX;
-            alpha = (int) (255 * scale * scale);
+            scale = 1 - Math.abs(left - srcPointX) / srcPointX;//透明位置
+            alpha = (int) (255 * scale * scale);//透明度
             mLinePaint.setAlpha(alpha);
             canvas.drawLine(left, 0, left, height, mLinePaint);
 
@@ -386,12 +375,8 @@ public class DecimalScaleRulerProgressBar extends View {
     private void notifyValueChange() {
         if (null != mListener) {
             int i = (int) (mItemNum / mAdvanceRate);
-            Log.e("FLY110", "i: " + i);
             int d = (int) (mItemNum % mAdvanceRate);
-            Log.e("FLY110", "d: " + d);
-            float value = i + d / 100f;
-            Log.e("FLY110", "value: " + value);
-            mListener.onValueChange(value);
+            mListener.onValueChange(i, d);
         }
     }
 
@@ -437,11 +422,21 @@ public class DecimalScaleRulerProgressBar extends View {
     }
 
     /**
+     * 设置间隔值
+     *
+     * @param mPerSpanValue
+     */
+    public void setPerSpanValue(int mPerSpanValue) {
+        this.mPerSpanValue = mPerSpanValue;
+        initViewParam();
+    }
+
+    /**
      * 设置默认值
      *
      * @param mDefaultValue
      */
-    public void setDefaultValue(float mDefaultValue) {
+    public void setDefaultValue(int mDefaultValue) {
         this.mDefaultValue = mDefaultValue;
         initViewParam();
     }
@@ -472,6 +467,6 @@ public class DecimalScaleRulerProgressBar extends View {
      * 滑动监听
      */
     public interface OnValueChangeListener {
-        void onValueChange(float value);
+        void onValueChange(int valueInt, int valueDecimal);
     }
 }

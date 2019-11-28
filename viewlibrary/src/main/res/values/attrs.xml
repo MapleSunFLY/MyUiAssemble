@@ -113,20 +113,35 @@
     </declare-styleable>
 
     <declare-styleable name="DecimalScaleRulerProgressBar">
+        <!--进率：小各种数-->
         <attr name="dsrAdvanceRate" format="dimension" />
+        <!--默认值-->
         <attr name="dsrDefaultValue" format="integer" />
+        <!--最大值-->
         <attr name="dsrMinValue" format="integer" />
+        <!--最小值-->
         <attr name="dsrMaxValue" format="integer" />
+        <!--大格子间隔值-->
         <attr name="dsrPerSpanValue" format="integer" />
+        <!--小格子间隔-->
         <attr name="dsrItemSpacing" format="dimension" />
+        <!--文本大小-->
         <attr name="dsrTextSize" format="dimension" />
+        <!--大刻度高度-->
         <attr name="dsrMaxLineHeight" format="dimension" />
+        <!--中间刻度高度-->
         <attr name="dsrMiddleLineHeight" format="dimension" />
+        <!--小刻度高度-->
         <attr name="dsrMinLineHeight" format="dimension" />
+        <!--刻度宽-->
         <attr name="dsrLineWidth" format="dimension" />
+        <!--文本与刻度距离-->
         <attr name="dsrTextMarginTop" format="dimension" />
+        <!--选中刻度宽度-->
         <attr name="dsrSelectWidth" format="dimension" />
+        <!--选中刻度颜色-->
         <attr name="dsrSelectColor" format="color" />
+        <!--线颜色-->
         <attr name="dsrLineColor" format="color" />
     </declare-styleable>
 
